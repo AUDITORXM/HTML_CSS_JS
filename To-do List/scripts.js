@@ -1,20 +1,32 @@
 function anadirTarea() {
-	
-	var ul = document.getElementById("lista");
 
-	var li = document.createElement("li");
+	actividad = document.getElementById("actividad").value;
 
-	ul.appendChild(li);
+	if (actividad == "" || actividad.match(/^\s+$/)){
 
-	li.appendChild(document.createTextNode(document.getElementById("actividad").value));
+		alert("No se puede meter una actividad vacía");
 
-	var botones = anadirBotonesTarea();
-	
-	for (let i = 0; i < botones.length; i++) {
-		
-		ul.appendChild(botones[i]);
-		
+	} else {
+
+		var ul = document.getElementById("lista");
+
+		var li = document.createElement("li");
+
+		ul.appendChild(li);
+
+		li.appendChild(document.createTextNode(actividad));
+
+		var botones = anadirBotonesTarea();
+
+		botones.forEach(boton => {
+			
+			li.appendChild(boton);
+
+		});
+
 	}
+	
+	actividad = "";
 
 }
 
@@ -58,20 +70,18 @@ function editarTarea(tarea) {
 
 }
 
-function eliminarTarea(tarea){
+function eliminarTarea(boton){
 
-	window.confirm("Estás seguro de querer eliminar la tarea?");
+	if (window.confirm("Estás seguro de querer eliminar la tarea?")) {
 
-	if (confirm("Tarea eliminada con éxito")) {
+		boton.parentNode.remove();
 
-		tarea.previousSibling.previousSibling.remove();
-		tarea.previousSibling.remove();
-		tarea.remove();
+		alert("Tarea eliminada con éxito");
 		
-	  } else {
+	} else {
 
 		alert("Eliminación cancelada");
 
-	  }
+	}
 
 }
