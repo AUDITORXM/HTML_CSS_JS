@@ -26,45 +26,58 @@ function anadirTarea() {
 
 	}
 	
-	actividad = "";
+	document.getElementById("actividad").value = ""; //No va con variable
 
 }
 
 function anadirBotonesTarea() {
 
-	var btns = [];
+	var botones = [];
 
-	for (let i = 0; i < 2; i++) {
+	botones.length = 2;
+
+	for (let i = 0; i < botones.length; i++) {
 		
-		btns[i] = document.createElement("button");
+		botones[i] = document.createElement("button");
+		icono = document.createElement("i");
+
+		if (i == 0){
+			
+			icono.setAttribute("class", "fa fa-edit");
+
+			botones[i].setAttribute("class", "editar");
+			botones[i].setAttribute("title", "Editar Tarea");
+			botones[i].setAttribute("onclick", "editarTarea(this)");
+			botones[i].appendChild(icono);
+
+		} else {
+
+			icono.setAttribute("class", "fa fa-trash");
+
+			botones[i].setAttribute("class", "eliminar");
+			botones[i].setAttribute("title", "Eliminar Tarea");
+			botones[i].setAttribute("onclick", "eliminarTarea(this)");
+			botones[i].appendChild(icono);
+
+		}
 		
 	}
 
-	btns[0].setAttribute("class", "editar");
-	btns[0].setAttribute("onclick", "editarTarea(this)");
-	btns[0].textContent = "Editar";
-	btns[1].setAttribute("class", "eliminar");
-	btns[1].setAttribute("onclick", "eliminarTarea(this)");
-	btns[1].textContent = "Eliminar";
-
-	return btns;
+	return botones;
 
 }
 
 function editarTarea(tarea) {
-	
-	// alert(tarea.previousSibling.textContent);
 
 	var tareaEditada = prompt("Edita la tarea seleccionada", tarea.previousSibling.textContent);
 
 	if (tareaEditada == null || tareaEditada == "") {
 
-		txt = "Edición cancelada.";
+		alert("Edición cancelada.");
 
 	} else {
 		
 		tarea.previousSibling.textContent = tareaEditada;
-		alert("Tarea editada con éxito");
 	
 	}
 
@@ -75,12 +88,34 @@ function eliminarTarea(boton){
 	if (window.confirm("Estás seguro de querer eliminar la tarea?")) {
 
 		boton.parentNode.remove();
-
-		alert("Tarea eliminada con éxito");
 		
 	} else {
 
 		alert("Eliminación cancelada");
+
+	}
+
+}
+
+function limpiarTareas() {
+
+	var lista = document.getElementById("lista");
+	
+	if (lista.childElementCount == 0){
+
+		alert("No hay tareas que eliminar");
+
+	} else {
+
+		if (confirm("Estás seguro de querer eliminar todas las tareas?")){
+
+			while (lista.firstChild) {
+
+				lista.removeChild(lista.lastChild);
+	
+			}
+
+		}
 
 	}
 
