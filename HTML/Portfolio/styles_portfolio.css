@@ -1,11 +1,12 @@
 body{
 
-	background-image: url("C:/Users/Public/Pictures/Sample Pictures/wdb.png");
+	background-image: url("img/wdb.png");
 	margin: 0;
 	color: white;
 
 }
 
+/* Icono del Header, el que está junto a los enlaces de los HTMLs */
 #icono{
 
 	width: 75px;
@@ -14,6 +15,7 @@ body{
 
 }
 
+/* Anclas del Header */
 .anchor{
 
 	font-size: 36px;
@@ -35,7 +37,7 @@ body{
 
 #presentacion, #about, #expertise{
 
-	margin-left: 20%;
+	margin-left: 10%;
 	margin-bottom: 10%;
 
 }
@@ -73,13 +75,16 @@ body{
 
 }
 
-#foto, #imagen_about{
+/* Ajuste de las imágenes para que aparezcan en la pantalla sin que sean muy grandes */
+#foto_presen, #imagen_about{
 
 	width: 75%;
 	height: 75%;
+	border-radius: 100%;
 
 }
 
+/* Estilización de los botones */
 button {
 	border: none;
 	background-color: blue;
@@ -101,15 +106,116 @@ button {
 
 }
 
-.tabla_cabecera:hover{
+#tabla{
+
+	border: 2px solid rgb(192,192,192);
+	width: 60%;
+
+}
+
+#tabla_cabecera:hover{
 
 	cursor: pointer;
 
 }
 
+#life:hover{
+
+	color:greenyellow;
+
+}
+
+#edu:hover{
+
+	color:greenyellow;
+
+}
+
+#exp:hover{
+
+	color:greenyellow;
+
+}
+
 .tabla_contenido{
 
-	text-align: justify;
-	width: 25%;
+	text-align: center;	
+
+}
+
+/* Bordes para el interior de la tabla */
+table th, table td{
+
+	border: 2px solid rgb(192,192,192);
+
+}
+
+/* Un poco de margen para el botón "Download CV" para que no esté pegado a la tabla */
+#cv{
+
+	margin-top: 1%;
+
+}
+
+#expertise li{
+
+	margin: 1%;
+
+}
+
+@media (max-width: 427px){
+
+	#about_me, #contact{
+
+		margin-left: 1%;
+
+	}
+
+	#header{
+
+		position: initial;
+
+	}
+
+	#presentacion, #about, #expertise{
+
+		margin-left: 1%;
+
+	}
+
+	#div_imagen_presen{
+
+		float: initial;
+		position: initial;
+		width: 100%;
+
+	}
+
+	#imagen_presen{
+
+		width: 50%;
+
+	}
+
+	#div_imagen_about{
+
+		float: initial;
+
+	}
+
+	#tabla{
+
+		margin-top: 25%;
+		margin-left: auto;
+		margin-right: auto;
+
+	}
+
+	#cv{
+
+		position: relative;
+		left: 25%;
+
+	}
 
 }

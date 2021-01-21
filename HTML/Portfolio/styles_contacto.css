@@ -1,9 +1,10 @@
 body{
 
-	background-image: url("C:/Users/Public/Pictures/Sample Pictures/wdb.png");
+	background-image: url("img/wdb.png");
 
 }
 
+/* Modificamos el contenido del formulario */
 input[type=text], select, textarea {
 	width: 100%;
 	padding: 12px;
@@ -15,6 +16,7 @@ input[type=text], select, textarea {
 	resize: vertical;
 }
 
+/* Estilizamos el botón submit para enviar datos */
 input[type=submit] {
 	background-color: #4CAF50;
 	color: white;
@@ -24,6 +26,7 @@ input[type=submit] {
 	cursor: pointer;
 }
 
+/* Estilizamos el botón submit cuando el usuario pasa el ratón por encima */
 input[type=submit]:hover {
 	background-color: #45a049;
 }

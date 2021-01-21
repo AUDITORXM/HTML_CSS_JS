@@ -6,15 +6,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="styles_portfolio.css">
-	<title>About</title>
+	<title>Portfolio Personal</title>
 </head>
 
 <body>
-
+	<!-- Cabecera con un icono y los enlaces a todos los HTMLs -->
 	<div id="header">
-		<img src="C:\Users\Public\Pictures\Sample Pictures\Java.png" alt="Icono" id="icono">
-		<a href="portfolio.html" class="anchor">About Me</a>
-		<a href="contacto.html" class="anchor">Contact</a>
+		<img src="img/Java.png" alt="Icono" id="icono">
+		<a href="portfolio.html" class="anchor" id="about_me">About Me</a>
+		<a href="contacto.html" class="anchor" id="contact">Contact</a>
 	</div>
 
 	<div id="presentacion">
@@ -22,14 +22,13 @@
 		<h2>I'm Kevin Blanco</h2>
 
 		<div id="div_foto_presen">
-			<img src="C:\Users\Public\Pictures\Sample Pictures\Android.png" alt="Foto" id="foto">
+			<img src="img/Android.png" alt="Foto" id="foto_presen">
 		</div>
 
 		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error vitae iusto quidem neque blanditiis, possimus
 			voluptatibus excepturi recusandae laudantium rem vel aliquid quibusdam explicabo aut laborum distinctio eum.
 			Expedita, facere.</p>
 
-		<!-- <img src="http://loremflickr.com/400/200" alt="Foto" id="Foto"> -->
 		<button id="contratar" onclick="window.location.href='./contacto.html'">Hire me</button>
 	</div>
 
@@ -37,33 +36,33 @@
 		<h2>About me</h2>
 
 		<div id="div_foto_about">
-			<img src="C:\Users\Public\Pictures\Sample Pictures\Android.png" alt="imagen_about" id="imagen_about">
+			<img src="img/Python.png" alt="imagen_about" id="imagen_about">
 		</div>
-
-		<table id="table">
+		<!-- Tabla para resumir la vida, la educación y la experiencia laboral -->
+		<table id="tabla">
 			<tr id="tabla_cabecera">
-				<th>Life</th>
-				<th>Education</th>
-				<th>Experience</th>
+				<th onclick="mostrarContenido(0)" id="life">Life</th>
+				<th onclick="mostrarContenido(1)" id="edu">Education</th>
+				<th onclick="mostrarContenido(2)" id="exp">Experience</th>
 			</tr>
 			<tr>
-				<th class="tabla_contenido" id="contenido1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus corporis
+				<td class="tabla_contenido">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus corporis
 					quas veniam hic quo,
 					optio, sequi explicabo et officiis aut, rerum voluptatibus adipisci tempore nesciunt laborum? Hic
-					dolores debitis velit?</th>
-				<th class="tabla_contenido" id="contenido2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, et ad!
+					dolores debitis velit?</td>
+				<td class="tabla_contenido">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, et ad!
 					Amet, doloribus voluptas
 					eaque tempora quasi dolor ab reprehenderit itaque at non aut, quam magni nemo! Magnam, dolore
-					sapiente.</th>
-				<th class="tabla_contenido" id="contenido3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque esse aperiam
+					sapiente.</td>
+				<td class="tabla_contenido">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque esse aperiam
 					sunt, et corporis
 					blanditiis debitis facere culpa quo qui, voluptates necessitatibus delectus exercitationem quis
-					dolor facilis error id nisi.</th>
+					dolor facilis error id nisi.</td>
 			</tr>
 		</table>
 		<button id="cv" onclick="window.location.href='./CV.docx'">Download CV</button>
 	</div>
-
+	<!-- Lista de habilidades -->
 	<div id="expertise">
 		<h2>Expertise</h2>
 		<ul>

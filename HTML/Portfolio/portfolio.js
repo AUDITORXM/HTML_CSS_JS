@@ -1,19 +1,28 @@
-var tabla = document.getElementById("table").firstElementChild.firstElementChild;
-tabla.addEventListener("click", cargarTabla);
-
-var cont1 = document.getElementById("contenido1");
-var cont2 = document.getElementById("contenido2");
-var cont3 = document.getElementById("contenido3");
+var tabla = document.getElementsByClassName("tabla_contenido");
 
 window.onload = function() {
+	
+	eliminarContenido();
 
-	cont2.style.display = 'none';
-	cont3.style.display = 'none';
+};
+
+
+function mostrarContenido(index) {
+
+	eliminarContenido();
+
+	tabla[index].style.visibility = "visible";
+	tabla[index].style.width = "35%";
 
 }
 
-function cargarTabla() {
-	
-	alert(tabla.firstElementChild.textContent);
+function eliminarContenido() {
 
+	for (let i = 0; i < tabla.length; i++) {
+		
+		tabla[i].style.visibility = "collapse";
+		tabla[i].style.width = "0%";
+		
+	}
+	
 }
