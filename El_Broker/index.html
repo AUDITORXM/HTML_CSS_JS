@@ -13,6 +13,33 @@
 		<div id="login">
 			<h3>Introduce tu nombre de usuario</h3>
 			<input type="text" name="usuario" id="usuario" placeholder="Nombre de Usuario">
+			<button id="iniciar" onclick="empezarJuego()">Empezar</button>
+		</div>
+
+		<div id="contenido">
+			<p id="tiempo">Tiempo Restante: </p>
+
+			<p id="capital">Efectivo Disponible: </p>
+			<br>
+
+			<p id="accion">Nº de Acciones: </p>
+			<br>
+			
+			<p id="precio">Precio actual de la Acción: </p>
+			<br>
+
+			<button id="comprar" onclick="comprarAccion()">Comprar Acción</button>
+			<button id="vender" onclick="venderAccion()">Vender Acción</button>
+			<br>
+			<br>
+			
+			<p id="record">Récord Mundial: </p>
+		</div>
+
+		<div id="repetir">
+			<h3 id="texto">Qué desea hacer?</h3>
+			<button id="seguir" onclick="repetir()">Seguir Jugando</button>
+			<button id="salir" onclick="salir()">Salir del Juego</button>
 		</div>
 
 		<script src="scripts.js"></script>

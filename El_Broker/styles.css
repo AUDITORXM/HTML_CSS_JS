@@ -4,3 +4,23 @@
 	width: 15%;
 
 }
+
+#tiempo{
+
+	float: right;
+	margin-right: 25%;
+
+}
+
+#contenido, #repetir{
+
+	display: none;
+
+}
+
+#contenido::not(#tiempo){
+
+	width: 15%;
+	border: 1px solid black;
+
+}
