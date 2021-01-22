@@ -57,6 +57,13 @@ body{
 	
 }
 
+#about h2{
+
+	width: 50%;
+	margin: 0%;
+
+}
+
 #div_foto_presen{
 
 	width: 25%;
@@ -183,23 +190,17 @@ table th, table td{
 
 	}
 
-	#div_imagen_presen{
+	#foto_presen{
 
-		float: initial;
-		position: initial;
-		width: 100%;
-
-	}
-
-	#imagen_presen{
-
-		width: 50%;
+		width: 150%;
+		margin-top: 75%;
+		margin-left: 25%;
 
 	}
 
-	#div_imagen_about{
+	#imagen_about{
 
-		float: initial;
+		display: none;
 
 	}
 
