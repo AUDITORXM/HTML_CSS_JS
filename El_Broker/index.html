@@ -15,10 +15,10 @@
 			<input type="text" name="usuario" id="usuario" placeholder="Nombre de Usuario">
 			<button id="iniciar" onclick="empezarJuego()">Empezar</button>
 		</div>
+		
+		<p id="tiempo">Tiempo Restante: </p>
 
 		<div id="contenido">
-			<p id="tiempo">Tiempo Restante: </p>
-
 			<p id="capital">Efectivo Disponible: </p>
 			<br>
 
@@ -33,13 +33,23 @@
 			<br>
 			<br>
 			
-			<p id="record">Récord Mundial: </p>
+			<p id="record">Récord Actual: </p>
 		</div>
 
 		<div id="repetir">
 			<h3 id="texto">Qué desea hacer?</h3>
 			<button id="seguir" onclick="repetir()">Seguir Jugando</button>
 			<button id="salir" onclick="salir()">Salir del Juego</button>
+		</div>
+
+		<div id="myModal" class="modal">
+
+			<div class="modal-content">
+			  <span id="cerrar" class="close">&times;</span>
+			  <p>FELICIDADES, HAS BATIDO UN NUEVO RÉCORD</p>
+			  <img src="img/copa.png" alt="copa">
+			</div>
+		  
 		</div>
 
 		<script src="scripts.js"></script>

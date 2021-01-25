@@ -40,7 +40,7 @@ class Jugador{
 
 }
 
-var tiempo = 60;
+var tiempo = 10000000000000;
 var usuario = new Jugador(document.getElementById("usuario").value, 1000, 0)
 var precio_accion = 100;
 
@@ -51,6 +51,8 @@ var text_precio = document.getElementById("precio");
 var text_record = document.getElementById("record");
 
 function empezarJuego() {
+
+	localStorage.setItem("Record", 0);
 	
 	if (!validarUsuario()){
 
@@ -61,11 +63,18 @@ function empezarJuego() {
 	document.getElementById("login").style.display = "none";
 	document.getElementById("contenido").style.display = "block";
 	document.getElementById("repetir").style.display = "none";
+	text_tiempo.style.display = "block";
 
-	text_precio.textContent = "Precio Actual de la Acción: " + 100;
+	cambiarCapital(); //Cambiamos el texto de capital aprovechando el método
+
+	text_tiempo.textContent = "Tiempo Restante: " + tiempo; //Aquí debemos ponerlo a mano para que no cambie el texto de color
+
+	text_precio.textContent = "Precio Actual de la Acción: " + precio_accion + "€"; //Aquí no se aprovecha el método ya que, inicialmente,debe ser 100 sí o sí
+
+	text_accion.textContent = "Nº de Acciones: " + usuario.getAcciones() + " (0€)"; //Aquí se pone a mano debido a que el valor inicial de precio_accion es 100 y el usuario no ha hecho ninguna acción aún, por lo que debe aparecer 0€
 
 	var cuenta_atras = setInterval(tiempoLimite, 1000);
-	var cambio_precio_accion = setInterval(cambiarValorAccion, 800);
+	var cambio_precio_accion = setInterval(cambiarValorAccion, 900);
 
 	text_record.textContent += localStorage.getItem("Record");
 
@@ -75,7 +84,7 @@ function cambiarValorAccion() {
 
 	var nuevo_precio = Math.round(Math.random() * ((100 - 10) + 10));
 
-	text_precio.textContent = "Precio Actual de la Acción: " + nuevo_precio;
+	text_precio.textContent = "Precio Actual de la Acción: " + nuevo_precio + "€";
 
 	if (nuevo_precio > precio_accion){
 
@@ -107,7 +116,7 @@ function cambiarNumAccion(comprar) {
 
 function cambiarCapital() {
 
-	text_capital.textContent = "Efectivo Disponible: " + usuario.getCapital();
+	text_capital.textContent = "Efectivo Disponible: " + usuario.getCapital() + "€";
 	
 }
 
@@ -123,7 +132,7 @@ function comprarAccion() {
 		usuario.setCapital(usuario.getCapital() - precio_accion);
 
 		cambiarNumAccion();
-		cambiarCapital(true);	
+		cambiarCapital();
 
 	}
 	
@@ -141,7 +150,7 @@ function venderAccion() {
 		usuario.setCapital(usuario.getCapital() + precio_accion);
 		
 		cambiarNumAccion();
-		cambiarCapital(false);
+		cambiarCapital();
 
 	}
 
@@ -164,6 +173,9 @@ function validarUsuario() {
 
 }
 
+var modal = document.getElementById("myModal");
+var span = document.getElementById("cerrar");
+
 function tiempoLimite() {
 	
 	text_tiempo.textContent = "Tiempo Restante: " + (tiempo - 1);
@@ -173,8 +185,15 @@ function tiempoLimite() {
 
 		alert("Se acabó el tiempo");
 		clearInterval(tiempoLimite);
+		clearInterval(cambiarValorAccion);
 
-		localStorage.setItem("Record", usuario.getCapital());
+		if (localStorage.getItem("Record") < usuario.getCapital()){
+
+			localStorage.setItem("Record", usuario.getCapital());
+
+			modal.style.display = "block";
+
+		}
 
 		document.getElementById("contenido").style.display = "none";
 		document.getElementById("repetir").style.display = "block";
@@ -183,13 +202,20 @@ function tiempoLimite() {
 
 }
 
+span.onclick = function() {
+
+	modal.style.display = "none";
+
+}
+
 function repetir() {
 	
-	tiempo = 60;
-	usuario.setAcciones(0);
-	usuario.setCapital(1000);
-	precio_accion =  100;
-	empezarJuego();
+	// tiempo = 60;
+	// usuario.setAcciones(0);
+	// usuario.setCapital(1000);
+	// precio_accion =  100;
+	// empezarJuego();
+	location.reload();
 
 }
 
