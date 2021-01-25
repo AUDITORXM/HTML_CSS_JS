@@ -1,0 +1,62 @@
+body{
+
+	background-color: lightcyan;
+
+}
+
+/* Index */
+#menu_principal{
+
+	text-align: center;
+
+}
+
+#menu_principal img{
+
+	margin: 5%;
+	width: 20%;
+
+}
+
+/* Enlaces */
+#cabecera{
+
+	background-color: lightgray;
+	font-size: 200%;
+	text-align: center;
+
+}
+
+#cabecera a{
+
+	margin: 0% 10%;
+	text-decoration: none;
+
+}
+
+/* Recetas */
+h1, img{
+
+	text-align: center;
+	margin: 1% 35%;
+
+}
+
+img{
+
+	width: 30%;
+	height: 30%;
+
+}
+
+/* Copy */
+p.copyright {
+	background-color: #333333;
+	width: 100%;
+	color: #fff;
+	line-height: 200%;
+	font-size: 0.7em;
+	position: fixed;
+	bottom: 0;
+	padding-left: 1%;
+}
