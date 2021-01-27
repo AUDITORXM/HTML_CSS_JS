@@ -1,0 +1,55 @@
+.carro{
+
+	width: 5%;
+	float: right;
+	background-color: aquamarine;
+	position: relative;
+	top: -5em;
+	left: -2em;
+
+}
+
+h1{
+
+	font-family: 'Lobster', cursive;
+	background-color: green;
+
+}
+
+/* Index */
+#menu{
+
+	margin: 20% 50%;
+
+}
+
+form{
+
+	width: 25%;
+
+}
+
+button{
+
+	font-size: 200%;
+
+}
+
+#enlace_bocadillos{
+
+	background-image: url("img/bocadillos.png");
+
+}
+
+/* Bocadillos */
+table{
+
+	text-align: center;
+
+}
+
+.img_bocadillo{
+
+	width: 50%;
+
+}
