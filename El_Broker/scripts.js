@@ -40,9 +40,10 @@ class Jugador{
 
 }
 
-var tiempo = 10000000000000;
-var usuario = new Jugador(document.getElementById("usuario").value, 1000, 0)
+var tiempo = 60;
 var precio_accion = 100;
+
+var usuario;
 
 var text_tiempo = document.getElementById("tiempo");
 var text_capital = document.getElementById("capital");
@@ -50,15 +51,20 @@ var text_accion = document.getElementById("accion");
 var text_precio = document.getElementById("precio");
 var text_record = document.getElementById("record");
 
-function empezarJuego() {
+var cuenta_atras;
+var cambio_precio_accion;
 
-	localStorage.setItem("Record", 0);
+function empezarJuego() {
 	
 	if (!validarUsuario()){
 
 		return;
 
 	}
+	
+	usuario = new Jugador(document.getElementById("usuario").value, 1000, 0);
+
+	localStorage.setItem("Record", 0);
 
 	document.getElementById("login").style.display = "none";
 	document.getElementById("contenido").style.display = "block";
@@ -73,26 +79,31 @@ function empezarJuego() {
 
 	text_accion.textContent = "Nº de Acciones: " + usuario.getAcciones() + " (0€)"; //Aquí se pone a mano debido a que el valor inicial de precio_accion es 100 y el usuario no ha hecho ninguna acción aún, por lo que debe aparecer 0€
 
-	var cuenta_atras = setInterval(tiempoLimite, 1000);
-	var cambio_precio_accion = setInterval(cambiarValorAccion, 900);
+	cuenta_atras = setInterval(tiempoLimite, 1000); //Hacemos que el método tiempoLimite() se ejecute cada segundo
+	cambio_precio_accion = setInterval(cambiarValorAccion, 900); //Hacemos que el método cambiarValorAccion() se ejecute cada 9 segundos
 
-	text_record.textContent += localStorage.getItem("Record");
+	text_record.textContent += localStorage.getItem("Record"); //Mostramos cuánto es el Récord Actual
 
 }
 
+// Cambiamos el valor de la acción que va a comprar/vender el usuario
 function cambiarValorAccion() {
 
 	var nuevo_precio = Math.round(Math.random() * ((100 - 10) + 10));
 
 	text_precio.textContent = "Precio Actual de la Acción: " + nuevo_precio + "€";
 
+	document.getElementById("img_precio").setAttribute("src", "");
+
 	if (nuevo_precio > precio_accion){
 
 		text_precio.style.color = "green";
+		document.getElementById("img_precio").setAttribute("src", "img/flecha_arriba.png");
 
 	} else {
 
 		text_precio.style.color = "red";
+		document.getElementById("img_precio").setAttribute("src", "img/flecha_abajo.png");
 
 	}
 
@@ -100,6 +111,7 @@ function cambiarValorAccion() {
 	
 }
 
+// Cambiamos la cantidad de acciones que ha realizado el usuario
 function cambiarNumAccion(comprar) {
 
 	if (comprar){
@@ -114,6 +126,7 @@ function cambiarNumAccion(comprar) {
 
 }
 
+// Actualizamos el capital (o efectivo) que tiene el usuario
 function cambiarCapital() {
 
 	text_capital.textContent = "Efectivo Disponible: " + usuario.getCapital() + "€";
@@ -156,6 +169,7 @@ function venderAccion() {
 
 }
 
+// Validamos que el nombre de usuario no está vacío
 function validarUsuario() {
 
 	var usuario = document.getElementById("usuario").value;
@@ -173,9 +187,7 @@ function validarUsuario() {
 
 }
 
-var modal = document.getElementById("myModal");
-var span = document.getElementById("cerrar");
-
+// Este método se encarga de mostrar el tiempo restante para el juego y, al acabar, ocultar el juego y sacar un menú para repetir/salir
 function tiempoLimite() {
 	
 	text_tiempo.textContent = "Tiempo Restante: " + (tiempo - 1);
@@ -184,8 +196,8 @@ function tiempoLimite() {
 	if (tiempo == 0){
 
 		alert("Se acabó el tiempo");
-		clearInterval(tiempoLimite);
-		clearInterval(cambiarValorAccion);
+		clearInterval(cuenta_atras);
+		clearInterval(cambio_precio_accion);
 
 		if (localStorage.getItem("Record") < usuario.getCapital()){
 
@@ -193,14 +205,23 @@ function tiempoLimite() {
 
 			modal.style.display = "block";
 
+			var msg = document.getElementById("modal_msg");
+
+			msg.textContent = msg.textContent.replace("USUARIO", usuario.getNombre().toUpperCase());
+
 		}
 
 		document.getElementById("contenido").style.display = "none";
+		document.getElementById("tiempo").style.display = "none";
 		document.getElementById("repetir").style.display = "block";
 
 	}
 
 }
+
+// Modal para cuando el juego acabe y el usuario haya batido un nuevo record
+var modal = document.getElementById("myModal");
+var span = document.getElementById("cerrar");
 
 span.onclick = function() {
 
@@ -208,6 +229,7 @@ span.onclick = function() {
 
 }
 
+// Si el usuario decide repetir el juego, recargamos la página
 function repetir() {
 	
 	// tiempo = 60;
@@ -219,6 +241,7 @@ function repetir() {
 
 }
 
+// Si el usuario decide salir del juego, mostramos un mensaje de despedida
 function salir() {
 	
 	var mensaje_salida = document.getElementById("texto");

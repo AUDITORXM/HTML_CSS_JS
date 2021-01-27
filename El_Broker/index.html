@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" href="img/tab_icon.png">
 	<link rel="stylesheet" href="styles.css">
-	<title>Juego "El Broker"</title>
+	<title>El Broker</title>
 </head>
 	<body>
-		
 
 		<div id="login">
-			<h3>Introduce tu nombre de usuario</h3>
+			<h3>Bienvenido, por favor, introduce tu nombre de usuario</h3>
 			<input type="text" name="usuario" id="usuario" placeholder="Nombre de Usuario">
 			<button id="iniciar" onclick="empezarJuego()">Empezar</button>
 		</div>
@@ -24,12 +24,13 @@
 
 			<p id="accion">Nº de Acciones: </p>
 			<br>
-			
+
 			<p id="precio">Precio actual de la Acción: </p>
+			<img src="" alt="movimiento_accion" id="img_precio">
 			<br>
 
-			<button id="comprar" onclick="comprarAccion()">Comprar Acción</button>
-			<button id="vender" onclick="venderAccion()">Vender Acción</button>
+			<button id="comprar" onclick="comprarAccion()">Comprar</button>
+			<button id="vender" onclick="venderAccion()">Vender</button>
 			<br>
 			<br>
 			
@@ -46,8 +47,8 @@
 
 			<div class="modal-content">
 			  <span id="cerrar" class="close">&times;</span>
-			  <p>FELICIDADES, HAS BATIDO UN NUEVO RÉCORD</p>
-			  <img src="img/copa.png" alt="copa">
+			  <p id="modal_msg">FELICIDADES USUARIO, HAS BATIDO UN NUEVO RÉCORD</p>
+			  <img src="img/copa.png" alt="copa" id="copa">
 			</div>
 		  
 		</div>
