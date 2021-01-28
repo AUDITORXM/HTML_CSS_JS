@@ -1,55 +1,129 @@
-.carro{
+body{
 
-	width: 5%;
-	float: right;
-	background-color: aquamarine;
-	position: relative;
-	top: -5em;
-	left: -2em;
+	background-color: lightblue;
 
 }
 
-h1{
+.cabecera{
 
-	font-family: 'Lobster', cursive;
+	font-family: 'Lobster';
 	background-color: green;
+	padding: 1% 2%;
+	display: flex;
+	flex-direction: row;
+
+}
+
+.cabecera a{
+
+	position: relative;
+	bottom: -0.7em;
+	font-size: 200%;
+	margin: 0% 5%;
+	text-decoration: none;
+	color: blue;
+
+}
+
+.carro{
+
+	width: 40%;
+	float: right;
+	background-color: green;
+	position: relative;
+	top: -1em;
+	left: 7.5em;
 
 }
 
 /* Index */
 #menu{
 
-	margin: 20% 50%;
+	margin: 10% 30%;
 
 }
 
-form{
+#div_bocadillos{
 
-	width: 25%;
+	float: left;
 
 }
 
-button{
+#div_bebidas{
 
-	font-size: 200%;
+	float: right;
 
 }
 
 #enlace_bocadillos{
 
-	background-image: url("img/bocadillos.png");
+	width: 60%;
+
+}
+
+.center{
+
+	text-align: center;
 
 }
 
 /* Bocadillos */
-table{
+.lista_bocadillos{
 
-	text-align: center;
+	display: flex;
+	flex-direction: row;
+
+}
+
+ul{
+
+	position: relative;
+	left: -15em;
+	bottom: -8.8em;
+	display: none;
+
+}
+
+.btn_ingredientes{
+
+	height: 10%;
+	position: relative;
+	top: -10em;
+	left: 5em;
 
 }
 
 .img_bocadillo{
 
 	width: 50%;
+
+}
+
+/* Bebidas */
+.lista_bebidas{
+
+	display: flex;
+	flex-direction: row;
+
+}
+
+.btn_tipo_bebida{
+
+	height: 10%;
+	position: relative;
+	top: -10em;
+	left: 5em;
+
+}
+
+.tipo_bebida{
+
+	height: 10%;
+	font-size: 125%;
+	position: relative;
+	top: 6em;
+	left: 7.5em;
+	margin: 2% 0%;
+	display: none;
 
 }
