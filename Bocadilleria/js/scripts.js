@@ -8,7 +8,8 @@ var bocadillos = [
 			"55 g taquitos de fiambre de pavo",
 			"Mayonesa",
 			"Pimienta"
-		]
+		],
+		"cantidad": 0
 	},
 	{
 		"nombre": "Bocadillo de lomo en manteca colorá",
@@ -17,7 +18,8 @@ var bocadillos = [
 			"Barra de Pan",
 			"2 panes para bocadillo",
 			"Lomos en manteca"
-		]
+		],
+		"cantidad": 0
 	},
 	{
 		"nombre": "Bocadillo Quijote",
@@ -30,7 +32,8 @@ var bocadillos = [
 			"Sal",
 			"AOVE",
 			"Pan rústico"
-		]
+		],
+		"cantidad": 0
 	}
 
 ];
@@ -38,15 +41,21 @@ var bocadillos = [
 var bebidas = [
 	{
 		"nombre": "Coca-Cola",
-		"imagen": "img/cocacola.png"
+		"imagen": "img/cocacola.png",
+		"cantidad_frio": 0,
+		"cantidad_tiempo": 0
 	},
 	{
 		"nombre": "Pepsi",
-		"imagen": "img/pepsi.png"
+		"imagen": "img/pepsi.png",
+		"cantidad_frio": 0,
+		"cantidad_tiempo": 0
 	},
 	{
 		"nombre": "Aquarius",
-		"imagen": "img/aquarius.png"
+		"imagen": "img/aquarius.png",
+		"cantidad_frio": 0,
+		"cantidad_tiempo": 0
 	}
 ];
 
@@ -79,16 +88,22 @@ function cargarBocadillos() {
 
 		}
 
-		let button = document.createElement("button");
-		button.setAttribute("class", "btn_ingredientes");
-		button.setAttribute("onclick", "mostrar(this)");
-		button.textContent = ">";
+		let button_mostrar = document.createElement("button");
+		button_mostrar.setAttribute("class", "btn_ingredientes");
+		button_mostrar.setAttribute("onclick", "mostrar(this)");
+		button_mostrar.textContent = ">";
+
+		let button_comprar = document.createElement("button");
+		button_comprar.setAttribute("class", "comprar_bocadillo");
+		button_comprar.setAttribute("onclick", "comprarBocadillo(event)");
+		button_comprar.textContent = "Comprar Bocadillo";
 
 		div.appendChild(h2);
 		div.appendChild(img);
-		div.appendChild(button);
+		div.appendChild(button_mostrar);
 		divGeneral.appendChild(div);
 		divGeneral.appendChild(ul);
+		divGeneral.appendChild(button_comprar);
 	}
 
 }
@@ -109,10 +124,10 @@ function cargarBebidas() {
 		let img = document.createElement("img");
 		img.setAttribute("src", bebidas[i].imagen);
 
-		let button = document.createElement("button");
-		button.setAttribute("class", "btn_tipo_bebida");
-		button.setAttribute("onclick", "mostrar(this)");
-		button.textContent = ">";
+		let button_mostrar = document.createElement("button");
+		button_mostrar.setAttribute("class", "btn_tipo_bebida");
+		button_mostrar.setAttribute("onclick", "mostrar(this)");
+		button_mostrar.textContent = ">";
 
 		let divRadio = document.createElement("div");
 		divRadio.setAttribute("class", "tipo_bebida");
@@ -143,11 +158,17 @@ function cargarBebidas() {
 		divRadio.appendChild(inputTiempo);
 		divRadio.appendChild(labelTiempo);
 
+		let button_comprar = document.createElement("button");
+		button_comprar.setAttribute("class", "comprar_bebida");
+		button_comprar.setAttribute("onclick", "comprarBebida(event)");
+		button_comprar.textContent = "Comprar Bebida";
+
 		div.appendChild(h2);
 		div.appendChild(img);
-		div.appendChild(button);
+		div.appendChild(button_mostrar);
 		divGeneral.appendChild(div);
 		divGeneral.appendChild(divRadio);
+		divGeneral.appendChild(button_comprar);
 
 		body.appendChild(divGeneral);
 	}
@@ -156,12 +177,65 @@ function cargarBebidas() {
 
 function mostrar(elemento){
 
-	let elem = elemento.parentNode.nextSibling;
+	let ingredientes_tipos = elemento.parentNode.nextSibling;
+	let btn_comprar = ingredientes_tipos.nextSibling;
 	
-	if (elem.style.display == "block"){
-		elem.style.display = "none";
+	if (ingredientes_tipos.style.display == "block"){
+		ingredientes_tipos.style.display = "none";
+		btn_comprar.style.display = "none";
 	} else {
-		elem.style.display = "block";
+		ingredientes_tipos.style.display = "block";
+		btn_comprar.style.display = "block";
 	}
+
+}
+
+function comprarBocadillo(articulo) {
+
+	let botones = document.getElementsByClassName("btn_comprar");
+	
+	for (let i = 0; i < botones.length; i++) {
+
+		if(botones[i] == articulo.target){
+			bocadillos[i].cantidad++;
+		}
+
+	}
+
+}
+
+function comprarBebida(articulo) {
+
+	let botones = document.getElementsByClassName("comprar_bebida");
+	let tipo_bebida = document.getElementsByTagName("input");
+
+	for (let i = 0; i < botones.length; i++) {
+
+		if (botones[i] == articulo.target){
+
+			if (tipo_bebida[i].checked){
+
+				bebidas[i].cantidad_frio++;
+
+			} else if (tipo_bebida[i+1].checked){
+
+				bebidas[i].cantidad_tiempo++;
+
+			} else {
+
+				alert("No has seleccionado tipo de bebida");
+				return;
+
+			}
+
+		}
+
+	}
+
+}
+
+function cargarCarro() {
+
+
 
 }

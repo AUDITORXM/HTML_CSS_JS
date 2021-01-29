@@ -67,6 +67,12 @@ body{
 
 }
 
+#div_bocadillos p{
+
+	margin-right: 40%;
+
+}
+
 /* Bocadillos */
 .lista_bocadillos{
 
@@ -90,6 +96,16 @@ ul{
 	position: relative;
 	top: -10em;
 	left: 5em;
+
+}
+
+.comprar_bocadillo{
+
+	height: 10%;
+	position: relative;
+	top: 15em;
+	left: -5em;
+	display: none;
 
 }
 
@@ -124,6 +140,16 @@ ul{
 	top: 6em;
 	left: 7.5em;
 	margin: 2% 0%;
+	display: none;
+
+}
+
+.comprar_bebida{
+
+	height: 10%;
+	position: relative;
+	top: 12em;
+	left: 20em;
 	display: none;
 
 }
