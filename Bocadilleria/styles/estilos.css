@@ -14,7 +14,7 @@ body{
 
 }
 
-.cabecera a{
+.cabecera a:not(.enlace_carro){
 
 	position: relative;
 	bottom: -0.7em;
@@ -25,14 +25,17 @@ body{
 
 }
 
+.enlace_carro{
+
+	position: relative;
+	top: -0.2em;
+	left: 7.5em;
+
+}
+
 .carro{
 
 	width: 40%;
-	float: right;
-	background-color: green;
-	position: relative;
-	top: -1em;
-	left: 7.5em;
 
 }
 
@@ -81,7 +84,7 @@ body{
 
 }
 
-ul{
+.lista_bocadillos ul{
 
 	position: relative;
 	left: -15em;

@@ -59,9 +59,35 @@ var bebidas = [
 	}
 ];
 
+var carro = document.getElementById("cantidad_articulos");
+var contenido = document.getElementById("contenido");
+
+// Calculamos la cantidad de artículos que hay en el carro y cargamos el contenido del HTML en el que está el usuario
+window.onload = function() {
+
+	let cantidadArticulos = 0;
+
+	for (let i = 0; i < bocadillos.length; i++) {
+		
+		cantidadArticulos += bocadillos[i].cantidad;
+		
+	}
+
+	for (let i = 0; i < bebidas.length; i++) {
+
+		cantidadArticulos += bebidas[i].cantidad_frio;
+		cantidadArticulos += bebidas[i].cantidad_tiempo;
+		
+	}
+	
+	carro.innerHTML = cantidadArticulos;
+
+}
+
 function cargarBocadillos() {
 
-	let body = document.getElementsByTagName("body")[0];
+	contenido.innerHTML = "";
+	let body = document.getElementById("contenido");
 
 	for (let i = 0; i < bocadillos.length; i++) {
 
@@ -110,7 +136,8 @@ function cargarBocadillos() {
 
 function cargarBebidas() {
 
-	let body = document.getElementsByTagName("body")[0];
+	contenido.innerHTML = "";
+	let body = document.getElementById("contenido");
 
 	for (let i = 0; i < bebidas.length; i++) {
 
@@ -175,6 +202,88 @@ function cargarBebidas() {
 
 }
 
+function cargarCuenta() {
+
+	contenido.innerHTML = "";
+	let body = document.getElementById("contenido");
+
+	let lista_bocadillos = document.createElement("h2");
+	lista_bocadillos.textContent = "Bocadillos";
+	let lista_bebidas = document.createElement("h2");
+	lista_bebidas.textContent = "Bebidas";
+	let ul_bocadillos = document.createElement("ul");
+	let ul_bebidas = document.createElement("ul");
+
+	for (let i = 0; i < bocadillos.length; i++) {
+
+		if (bocadillos[i].cantidad > 0) {
+
+			let li = document.createElement("li");
+			li.textContent = bocadillos[i].nombre + " -> " + bocadillos[i].cantidad;
+			ul_bocadillos.appendChild(li);
+
+		}
+
+	}
+
+	for (let i = 0; i < bebidas.length; i++) {
+
+		if (bebidas[i].cantidad_frio > 0){
+
+			let li = document.createElement("li");
+			li.textContent = bebidas[i].nombre + " Fría -> " + bebidas[i].cantidad_frio;
+			ul_bebidas.appendChild(li);
+
+		}
+
+		if (bebidas[i].cantidad_tiempo > 0) {
+
+			let li = document.createElement("li");
+			li.textContent = bebidas[i].nombre + " de Tiempo -> " + bebidas[i].cantidad_tiempo;
+			ul_bebidas.appendChild(li);
+
+		}
+		
+	}
+
+	body.appendChild(lista_bocadillos);
+	body.appendChild(ul_bocadillos);
+	body.appendChild(lista_bebidas);
+	body.appendChild(ul_bebidas);
+
+	// Botón Descargar
+	// var file = new Blob([bocadillos])
+	// var link = document.createElement('a');
+	// link.href = "../file.pdf";
+	// link.download = 'Archivito.pdf';
+	// link.dispatchEvent(new MouseEvent('click'));
+
+	// body.appendChild(link);
+
+	download(body.textContent, "Archivito", "text/plain"); //application/pdf
+
+}
+
+function download(data, filename, type) {
+	var file = new Blob([data], {
+		type: type
+	});
+	if (window.navigator.msSaveOrOpenBlob) // IE10+
+		window.navigator.msSaveOrOpenBlob(file, filename);
+	else { // Others
+		var a = document.createElement("a"),
+			url = URL.createObjectURL(file);
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		setTimeout(function () {
+			document.body.removeChild(a);
+			window.URL.revokeObjectURL(url);
+		}, 0);
+	}
+}
+
 function mostrar(elemento){
 
 	let ingredientes_tipos = elemento.parentNode.nextSibling;
@@ -192,8 +301,8 @@ function mostrar(elemento){
 
 function comprarBocadillo(articulo) {
 
-	let botones = document.getElementsByClassName("btn_comprar");
-	
+	let botones = document.getElementsByClassName("comprar_bocadillo");
+
 	for (let i = 0; i < botones.length; i++) {
 
 		if(botones[i] == articulo.target){
@@ -201,6 +310,8 @@ function comprarBocadillo(articulo) {
 		}
 
 	}
+
+	carro.innerHTML++;
 
 }
 
@@ -232,10 +343,6 @@ function comprarBebida(articulo) {
 
 	}
 
-}
-
-function cargarCarro() {
-
-
+	carro.innerHTML++;
 
 }
