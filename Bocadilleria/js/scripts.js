@@ -1,39 +1,52 @@
 var bocadillos = [
 	{
-		"nombre": "Bocadillo de Atún y Pavo",
+		"nombre": "Bocadillo Serranito",
 		"imagen": "img/bocadillo1.png",
 		"ingredientes": [
-			"Barra de Pan",
-			"2 latas atún en aceite",
-			"55 g taquitos de fiambre de pavo",
-			"Mayonesa",
-			"Pimienta"
+			"4 filetes de lomo de cerdo",
+			"2 pimientos verdes italianos",
+			"4 lonchas grandes de jamón serrano",
+			"2 panes de bocadillo",
+			"Pimienta negra molida",
+			"Aceite de oliva",
+			"Sal"
 		],
-		"cantidad": 0
+		"cantidad": 0,
+		"precio": 8.99
 	},
 	{
-		"nombre": "Bocadillo de lomo en manteca colorá",
+		"nombre": "Bocadillo Caprese",
 		"imagen": "img/bocadillo2.png",
 		"ingredientes": [
-			"Barra de Pan",
-			"2 panes para bocadillo",
-			"Lomos en manteca"
+			"4 panes tipo baguette",
+			"250 gr de mozzarella",
+			"2 tomates grandes",
+			"Hojas de albahaca",
+			"Pimienta",
+			"Orégano",
+			"Aceite de oliva",
+			"Sal"
 		],
-		"cantidad": 0
+		"cantidad": 0,
+		"precio": 5.99
 	},
 	{
-		"nombre": "Bocadillo Quijote",
+		"nombre": "Bocadillo de Calamares",
 		"imagen": "img/bocadillo3.png",
 		"ingredientes": [
-			"2 huevos",
-			"Jamón serrano",
-			"Queso manchego",
-			"1 tomate pequeño",
-			"Sal",
-			"AOVE",
-			"Pan rústico"
+			"1 barra de pan rústico",
+			"500 gr de calamares",
+			"1 vaso de leche",
+			"30 gr de harina de trigo para rebozar",
+			"½ cucharadita de pimentón dulce",
+			"½ cucharadita de pimienta negra molida",
+			"1 limón",
+			"4 cucharadas de mahonesa",
+			"Aceite para freír",
+			"Sal"
 		],
-		"cantidad": 0
+		"cantidad": 0,
+		"precio": 6.49
 	}
 
 ];
@@ -43,19 +56,22 @@ var bebidas = [
 		"nombre": "Coca-Cola",
 		"imagen": "img/cocacola.png",
 		"cantidad_frio": 0,
-		"cantidad_tiempo": 0
+		"cantidad_tiempo": 0,
+		"precio": 1.99
 	},
 	{
 		"nombre": "Pepsi",
 		"imagen": "img/pepsi.png",
 		"cantidad_frio": 0,
-		"cantidad_tiempo": 0
+		"cantidad_tiempo": 0,
+		"precio": 1.49
 	},
 	{
 		"nombre": "Aquarius",
 		"imagen": "img/aquarius.png",
 		"cantidad_frio": 0,
-		"cantidad_tiempo": 0
+		"cantidad_tiempo": 0,
+		"precio": 1.49
 	}
 ];
 
@@ -214,13 +230,17 @@ function cargarCuenta() {
 	let ul_bocadillos = document.createElement("ul");
 	let ul_bebidas = document.createElement("ul");
 
+	let total = 0;
+
 	for (let i = 0; i < bocadillos.length; i++) {
 
 		if (bocadillos[i].cantidad > 0) {
 
 			let li = document.createElement("li");
-			li.textContent = bocadillos[i].nombre + " -> " + bocadillos[i].cantidad;
+			li.textContent = bocadillos[i].nombre + " -> " + bocadillos[i].cantidad + " (" + bocadillos[i].cantidad * bocadillos[i].precio + "€)";
 			ul_bocadillos.appendChild(li);
+
+			total += bocadillos[i].cantidad * bocadillos[i].precio;
 
 		}
 
@@ -231,25 +251,33 @@ function cargarCuenta() {
 		if (bebidas[i].cantidad_frio > 0){
 
 			let li = document.createElement("li");
-			li.textContent = bebidas[i].nombre + " Fría -> " + bebidas[i].cantidad_frio;
+			li.textContent = bebidas[i].nombre + " Fría -> " + bebidas[i].cantidad_frio + " (" + bebidas[i].cantidad_frio * bebidas[i].precio + "€)";
 			ul_bebidas.appendChild(li);
+			
+			total += bebidas[i].cantidad_frio * bebidas[i].precio;
 
 		}
 
 		if (bebidas[i].cantidad_tiempo > 0) {
 
 			let li = document.createElement("li");
-			li.textContent = bebidas[i].nombre + " de Tiempo -> " + bebidas[i].cantidad_tiempo;
+			li.textContent = bebidas[i].nombre + " de Tiempo -> " + bebidas[i].cantidad_tiempo + " (" + bebidas[i].precio + "€)";
 			ul_bebidas.appendChild(li);
+
+			total += bebidas[i].cantidad_tiempo * bebidas[i].precio;
 
 		}
 		
 	}
 
+	let h2_total = document.createElement("h2");
+	h2_total.innerHTML = "Precio Total: " + total + "€";
+
 	body.appendChild(lista_bocadillos);
 	body.appendChild(ul_bocadillos);
 	body.appendChild(lista_bebidas);
 	body.appendChild(ul_bebidas);
+	body.appendChild(h2_total);
 
 	// Botón Descargar
 	// var file = new Blob([bocadillos])
@@ -260,29 +288,43 @@ function cargarCuenta() {
 
 	// body.appendChild(link);
 
-	download(body.textContent, "Archivito", "text/plain"); //application/pdf
+	// download(body.textContent, "Archivito", "text/plain"); //application/pdf
+
+	let mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+	mywindow.document.write('<html><head><title>' + document.title + '</title>');
+	mywindow.document.write('</head><body>');
+	mywindow.document.write('<h1>Ticket</h1>');
+	mywindow.document.write(body.innerHTML);
+	mywindow.document.write('</body></html>');
+
+	mywindow.document.close(); // necessary for IE >= 10
+	mywindow.focus(); // necessary for IE >= 10*/
+
+	mywindow.print();
+	mywindow.close();
 
 }
 
-function download(data, filename, type) {
-	var file = new Blob([data], {
-		type: type
-	});
-	if (window.navigator.msSaveOrOpenBlob) // IE10+
-		window.navigator.msSaveOrOpenBlob(file, filename);
-	else { // Others
-		var a = document.createElement("a"),
-			url = URL.createObjectURL(file);
-		a.href = url;
-		a.download = filename;
-		document.body.appendChild(a);
-		a.click();
-		setTimeout(function () {
-			document.body.removeChild(a);
-			window.URL.revokeObjectURL(url);
-		}, 0);
-	}
-}
+// function download(data, filename, type) {
+// 	var file = new Blob([data], {
+// 		type: type
+// 	});
+// 	if (window.navigator.msSaveOrOpenBlob) // IE10+
+// 		window.navigator.msSaveOrOpenBlob(file, filename);
+// 	else { // Others
+// 		var a = document.createElement("a"),
+// 			url = URL.createObjectURL(file);
+// 		a.href = url;
+// 		a.download = filename;
+// 		document.body.appendChild(a);
+// 		a.click();
+// 		setTimeout(function () {
+// 			document.body.removeChild(a);
+// 			window.URL.revokeObjectURL(url);
+// 		}, 0);
+// 	}
+// }
 
 function mostrar(elemento){
 
@@ -324,19 +366,39 @@ function comprarBebida(articulo) {
 
 		if (botones[i] == articulo.target){
 
-			if (tipo_bebida[i].checked){
+			switch (i) {
+				case 0:
+					if (tipo_bebida[i].checked){
+						bebidas[i].cantidad_frio++;
+					} else if(tipo_bebida[i+1].checked){
+						bebidas[i].cantidad_tiempo++;
+					} else {
+						alert("No has seleccionado tipo de bebida");
+					}
+					break;
 
-				bebidas[i].cantidad_frio++;
+				case 1:
+					if (tipo_bebida[i+i].checked) {
+						bebidas[i].cantidad_frio++;
+					} else if (tipo_bebida[i+i+1].checked) {
+						bebidas[i].cantidad_tiempo++;
+					} else {
+						alert("No has seleccionado tipo de bebida");
+					}
+					break;
 
-			} else if (tipo_bebida[i+1].checked){
-
-				bebidas[i].cantidad_tiempo++;
-
-			} else {
-
-				alert("No has seleccionado tipo de bebida");
-				return;
-
+				case 2:
+					if (tipo_bebida[i+i].checked) {
+						bebidas[i].cantidad_frio++;
+					} else if (tipo_bebida[i+i+1].checked) {
+						bebidas[i].cantidad_tiempo++;
+					} else {
+						alert("No has seleccionado tipo de bebida");
+					}
+					break;
+				default:
+					alert("No has seleccionado tipo de bebida");
+					break;
 			}
 
 		}
