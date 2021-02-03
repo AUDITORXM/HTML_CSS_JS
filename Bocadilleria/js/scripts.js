@@ -1,3 +1,4 @@
+// Creamos objeto JSON bocadillos, con toda la información de los bocadillos
 var bocadillos = [
 	{
 		"nombre": "Bocadillo Serranito",
@@ -50,7 +51,7 @@ var bocadillos = [
 	}
 
 ];
-
+// Lo mismo pero con bebidas
 var bebidas = [
 	{
 		"nombre": "Coca-Cola",
@@ -74,33 +75,12 @@ var bebidas = [
 		"precio": 1.49
 	}
 ];
-
+// Variable para contabilizar la cantidad de articulos en el carrito (el número que aparece arriba junto al carro)
 var carro = document.getElementById("cantidad_articulos");
+// Variable para guardar el div que contiene el cuerpo de la página (excluyendo la cabecera)
 var contenido = document.getElementById("contenido");
 
-// Calculamos la cantidad de artículos que hay en el carro y cargamos el contenido del HTML en el que está el usuario
-window.onload = function() {
-
-	let cantidadArticulos = 0;
-
-	for (let i = 0; i < bocadillos.length; i++) {
-		
-		cantidadArticulos += bocadillos[i].cantidad;
-		
-	}
-
-	for (let i = 0; i < bebidas.length; i++) {
-
-		cantidadArticulos += bebidas[i].cantidad_frio;
-		cantidadArticulos += bebidas[i].cantidad_tiempo;
-		
-	}
-	
-	carro.innerHTML = cantidadArticulos;
-
-}
-
-function cargarBocadillos() {
+function cargarBocadillos() { //Cargamos los datos dentro del objeto "bocadillos" y añadimos un botón para comprar
 
 	contenido.innerHTML = "";
 	let body = document.getElementById("contenido");
@@ -150,7 +130,7 @@ function cargarBocadillos() {
 
 }
 
-function cargarBebidas() {
+function cargarBebidas() { ////Cargamos los datos dentro del objeto "bebidas" y añadimos un botón para comprar, junto a unos radio button para que el usuario pueda elegir el tipo de bebida
 
 	contenido.innerHTML = "";
 	let body = document.getElementById("contenido");
@@ -218,7 +198,7 @@ function cargarBebidas() {
 
 }
 
-function cargarCuenta() {
+function cargarCuenta() { //Carga los artículos que el usuario ha comprado y muestra una pantalla de impresión
 
 	contenido.innerHTML = "";
 	let body = document.getElementById("contenido");
@@ -261,72 +241,50 @@ function cargarCuenta() {
 		if (bebidas[i].cantidad_tiempo > 0) {
 
 			let li = document.createElement("li");
-			li.textContent = bebidas[i].nombre + " de Tiempo -> " + bebidas[i].cantidad_tiempo + " (" + bebidas[i].precio + "€)";
+			li.textContent = bebidas[i].nombre + " de Tiempo -> " + bebidas[i].cantidad_tiempo + " (" + bebidas[i].cantidad_tiempo * bebidas[i].precio + "€)";
 			ul_bebidas.appendChild(li);
 
 			total += bebidas[i].cantidad_tiempo * bebidas[i].precio;
 
 		}
-		
+
 	}
 
 	let h2_total = document.createElement("h2");
-	h2_total.innerHTML = "Precio Total: " + total + "€";
+	h2_total.innerHTML = "Precio Total: " + total.toFixed(2) + "€";
+
+	let button_imprimir = document.createElement("button");
+	button_imprimir.setAttribute("onclick", "imprimir()");
+	button_imprimir.textContent = "Imprimir Factura";
 
 	body.appendChild(lista_bocadillos);
 	body.appendChild(ul_bocadillos);
 	body.appendChild(lista_bebidas);
 	body.appendChild(ul_bebidas);
 	body.appendChild(h2_total);
-
-	// Botón Descargar
-	// var file = new Blob([bocadillos])
-	// var link = document.createElement('a');
-	// link.href = "../file.pdf";
-	// link.download = 'Archivito.pdf';
-	// link.dispatchEvent(new MouseEvent('click'));
-
-	// body.appendChild(link);
-
-	// download(body.textContent, "Archivito", "text/plain"); //application/pdf
-
-	let mywindow = window.open('', 'PRINT', 'height=400,width=600');
-
-	mywindow.document.write('<html><head><title>' + document.title + '</title>');
-	mywindow.document.write('</head><body>');
-	mywindow.document.write('<h1>Ticket</h1>');
-	mywindow.document.write(body.innerHTML);
-	mywindow.document.write('</body></html>');
-
-	mywindow.document.close(); // necessary for IE >= 10
-	mywindow.focus(); // necessary for IE >= 10*/
-
-	mywindow.print();
-	mywindow.close();
+	body.appendChild(button_imprimir);
 
 }
 
-// function download(data, filename, type) {
-// 	var file = new Blob([data], {
-// 		type: type
-// 	});
-// 	if (window.navigator.msSaveOrOpenBlob) // IE10+
-// 		window.navigator.msSaveOrOpenBlob(file, filename);
-// 	else { // Others
-// 		var a = document.createElement("a"),
-// 			url = URL.createObjectURL(file);
-// 		a.href = url;
-// 		a.download = filename;
-// 		document.body.appendChild(a);
-// 		a.click();
-// 		setTimeout(function () {
-// 			document.body.removeChild(a);
-// 			window.URL.revokeObjectURL(url);
-// 		}, 0);
-// 	}
-// }
+function imprimir() {
+	
+	let pdf = window.open('', 'PRINT', 'height=400,width=600');
 
-function mostrar(elemento){
+	pdf.document.write('<html><head><title>' + document.title + '</title>');
+	pdf.document.write('</head><body>');
+	pdf.document.write('<h1>Ticket</h1>');
+	pdf.document.write(document.getElementById("contenido").innerHTML);
+	pdf.document.write('</body></html>');
+
+	pdf.document.close();
+	pdf.focus();
+
+	pdf.print();
+	pdf.close();
+
+}
+
+function mostrar(elemento){ //Mostramos/ocultamos los ingredientes y botón de compra del bocadillo que el usuario haya elegido
 
 	let ingredientes_tipos = elemento.parentNode.nextSibling;
 	let btn_comprar = ingredientes_tipos.nextSibling;
@@ -341,7 +299,7 @@ function mostrar(elemento){
 
 }
 
-function comprarBocadillo(articulo) {
+function comprarBocadillo(articulo) { //Añadimos la compra al objeto "bocadillos", incrementando el atributo "cantidad" en 1
 
 	let botones = document.getElementsByClassName("comprar_bocadillo");
 
@@ -357,7 +315,7 @@ function comprarBocadillo(articulo) {
 
 }
 
-function comprarBebida(articulo) {
+function comprarBebida(articulo) { //Añadimos la compra al objeto "bebidas", incrementando el atributo "cantidad_frio" o "cantidad_tiempo" en 1 según el radio button seleccionado
 
 	let botones = document.getElementsByClassName("comprar_bebida");
 	let tipo_bebida = document.getElementsByTagName("input");

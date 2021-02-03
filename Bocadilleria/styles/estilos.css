@@ -4,6 +4,7 @@ body{
 
 }
 
+/* Cabecera */
 .cabecera{
 
 	font-family: 'Lobster';
@@ -42,7 +43,7 @@ body{
 /* Index */
 #menu{
 
-	margin: 10% 30%;
+	margin: 10% 10%;
 
 }
 

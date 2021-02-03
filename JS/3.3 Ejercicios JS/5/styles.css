@@ -1,0 +1,20 @@
+#txt_mostrar, #tabla{
+
+	display: none;
+
+}
+
+#tabla{
+
+	border: 1px solid black;
+	color: white;
+	background-color: grey;
+	font-size: 130%;
+
+}
+
+.tabla_titulo{
+
+	background-color: black;
+
+}
