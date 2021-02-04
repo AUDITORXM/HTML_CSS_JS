@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Cuenta Atrás</title>
+</head>
+<body>
+
+	<label for="fecha">Introduce la fecha del evento</label>
+	<input type="datetime-local" name="fecha" id="fecha">
+	<button id="boton_fecha">Comprobar cuánto queda</button>
+
+	<div id="tiempo_restante" style="display: none">
+		<h2>Tiempo Restante</h2>
+		<p id="cuenta_atras"></p>
+	</div>
+
+	<script src="scripts.js"></script>
+</body>
+</html>
