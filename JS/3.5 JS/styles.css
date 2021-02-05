@@ -1,0 +1,33 @@
+#container {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+
+}
+
+.comida{
+
+	padding: 2%;
+	border: 1px solid black;
+
+}
+
+.comida:hover {
+
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+
+}
+
+.comida img {
+
+	width: 100%;
+
+}
+
+.comida p {
+
+	font-weight: bold;
+
+}
