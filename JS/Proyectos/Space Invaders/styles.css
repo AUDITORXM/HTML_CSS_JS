@@ -3,6 +3,18 @@
 	margin: 0;
 }
 
+body{
+	background-color: black;
+}
+
+h2{
+	color: white;
+}
+
+#img_fondo, #img_brick, #img_ball{
+	display: none;
+}
+
 canvas {
 	background: #eee;
 	display: block;
@@ -40,8 +52,26 @@ canvas {
 .modal-content p {
 
 	text-align: center;
-	font-size: 125%;
+	font-size: 150%;
 	font-weight: bold;
+
+}
+
+#seguir{
+	margin-left: 25%;
+}
+
+#salir{
+	margin-left: 5%;
+}
+
+.modal-content button{
+
+	color: white;
+	background-color: blue;
+	font-size: 125%;
+	margin: 10% 0%;
+	padding: 5%;
 
 }
 
@@ -58,11 +88,4 @@ canvas {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
-}
-
-#copa {
-
-	margin-left: 25%;
-	width: 50%;
-
 }

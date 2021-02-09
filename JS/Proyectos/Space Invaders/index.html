@@ -10,14 +10,18 @@
 </head>
 <body>
 
-	<canvas id="myCanvas" width="1000%" height="500%"><img src="img/screen.png" alt="Fondo"></canvas>
+	<canvas id="myCanvas"></canvas>
+	<img src="img/screen.png" alt="fondo" id="img_fondo">
+	<img src="img/img_brick.png" alt="brick" id="img_brick">
+	<img src="img/img_ball.png" alt="brick" id="img_ball">
 
 	<div id="myModal" class="modal">
 
 		<div class="modal-content">
 			<span id="cerrar" class="close">&times;</span>
 			<p id="modal_msg">FELICIDADES USUARIO, HAS BATIDO UN NUEVO RÉCORD</p>
-			<img src="img/copa.png" alt="copa" id="copa">
+			<button id="seguir">Otra partida</button>
+			<button id="salir">Dejar de jugar</button>
 		</div>
 
 	</div>
