@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>Ocultar Párrafos</title>
+</head>
+<body>
+
+	<h1>Soy un H1</h1>
+	<h2>Soy un H2</h2>
+
+	<p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia unde hic tempore ipsa possimus sit magni itaque minima, commodi doloribus placeat reiciendis ullam id ad sint architecto numquam? Nostrum, minus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni assumenda officia, fugiat nobis accusamus facilis nemo dignissimos vel excepturi sint sequi earum praesentium quae voluptatibus repudiandae dicta, non alias repellat?</p>
+	<br><br>
+	<p class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere reprehenderit, eligendi sequi omnis iure id labore itaque voluptatum excepturi deserunt quis dignissimos saepe explicabo voluptatem ipsa recusandae quibusdam asperiores suscipit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente recusandae fuga in sunt saepe id fugiat nesciunt, necessitatibus, error delectus natus quod dolor debitis quam eligendi dolore nemo tempora voluptatem? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, aut voluptates cumque, consequuntur deleniti asperiores aliquid corporis, odio alias ipsum dolore quae minus perspiciatis rerum nisi voluptatem ea porro iusto.</p>
+	<br><br>
+	<p id="textazo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere reprehenderit, eligendi sequi omnis iure
+		id labore itaque voluptatum excepturi deserunt quis dignissimos saepe explicabo voluptatem ipsa recusandae
+		quibusdam asperiores suscipit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente recusandae fuga in
+		sunt saepe id fugiat nesciunt, necessitatibus, error delectus natus quod dolor debitis quam eligendi dolore nemo
+		tempora voluptatem? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, aut voluptates cumque,
+		consequuntur deleniti asperiores aliquid corporis, odio alias ipsum dolore quae minus perspiciatis rerum nisi
+		voluptatem ea porro iusto. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod culpa labore hic dolores accusantium laborum modi qui incidunt, quam atque obcaecati voluptate ipsum. Omnis, laborum culpa? Laudantium deleniti ad omnis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nulla perspiciatis numquam optio doloribus! Accusamus aut quae ullam repudiandae ad quia vitae ipsa voluptatum, tenetur corporis, voluptates laboriosam a accusantium?</p>
+
+	<!-- <a href="#">Ocultar Todo</a> -->
+
+	<button>Ocultar Todo</button>
+
+	<script>
+		$(() => {
+			$("body").children().click((e) => {
+				$(e.currentTarget).hide(5000);
+			});
+			$("button").click((e) => {
+				$("p").hide(5000);
+			});
+		});
+	</script>
+</body>
+</html>

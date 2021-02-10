@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>Ocultar Párrafos</title>
+</head>
+
+<body>
+
+	<h2>Primero</h2>
+	<ul>
+		<li>Lunes</li>
+		<li>Martes</li>
+		<li>Miércoles</li>
+	</ul>
+
+	<h2>Segundo</h2>
+	<ul>
+		<li>Mañana</li>
+		<li>Tarde</li>
+		<li>Noche</li>
+	</ul>
+
+	<h2>Tercero</h2>
+	<ul>
+		<li>Rojo</li>
+		<li>Azul</li>
+		<li>Verde</li>
+	</ul>
+
+	<button id="b1">Ocultar Primero</button>
+	<button id="b2">Ocultar Último</button>
+	<button id="b3">Ocultar Todos los Primeros</button>
+	<button id="b4">Ocultar Todos los Últimos</button>
+
+	<script>
+		$("#b1").click(() => {
+			$("li:first").hide(1000);
+		});
+		$("#b2").click(() => {
+			$("li:last").hide(1000);
+		});
+		$("#b3").click(() => {
+			$("li:first-child").hide(1000);
+		});
+		$("#b4").click(() => {
+			$("li:last-child").hide(1000);
+		});
+	</script>
+</body>
+
+</html>
