@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,18 +9,20 @@
 	<link rel="stylesheet" href="styles.css">
 	<title>Space Invaders</title>
 </head>
+
 <body>
 
 	<canvas id="myCanvas"></canvas>
 	<img src="img/screen.png" alt="fondo" id="img_fondo">
 	<img src="img/img_brick.png" alt="brick" id="img_brick">
 	<img src="img/img_ball.png" alt="brick" id="img_ball">
+	<img src="img/space.gif" alt="space" id="img_space">
 
 	<div id="myModal" class="modal">
 
 		<div class="modal-content">
 			<span id="cerrar" class="close">&times;</span>
-			<p id="modal_msg">FELICIDADES USUARIO, HAS BATIDO UN NUEVO RÉCORD</p>
+			<p id="modal_msg"></p>
 			<button id="seguir">Otra partida</button>
 			<button id="salir">Dejar de jugar</button>
 		</div>
@@ -28,4 +31,5 @@
 
 	<script src="scripts.js"></script>
 </body>
+
 </html>

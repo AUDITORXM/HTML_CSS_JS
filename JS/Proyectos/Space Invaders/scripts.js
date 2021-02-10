@@ -7,8 +7,6 @@ var img_ball = document.getElementById("img_ball");
 canvas.width = 1500;
 canvas.height = 700;
 
-ctx.drawImage(img_screen, 90, 130, 50, 60, 10, 10, 50, 60);
-
 var x = canvas.width / 2;
 var y = canvas.height - 30;
 
@@ -36,7 +34,11 @@ var bricks = [];
 for (c = 0; c < brickColumnCount; c++) {
 	bricks[c] = [];
 	for (r = 0; r < brickRowCount; r++) {
-		bricks[c][r] = {x: 0, y: 0, status: 1};
+		bricks[c][r] = {
+			x: 0,
+			y: 0,
+			status: 1
+		};
 	}
 }
 
@@ -46,6 +48,7 @@ var lives = 3;
 function draw() {
 
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	// ctx.drawImage(img_screen, 0, 0, canvas.width, canvas.height); //Imagen estática de fondo
 	drawBricks();
 	drawBall();
 	drawPaddle();
@@ -64,14 +67,12 @@ function draw() {
 	} else if (y + dy > canvas.height - ballRadius) {
 		if (x > paddleX && x < paddleX + paddleWidth) {
 			dy = -dy;
-		}
-		else {
+		} else {
 			lives--;
 			if (!lives) {
 				modal.style.display = "block";
 				mensajeModal();
-			}
-			else {
+			} else {
 				x = canvas.width / 2;
 				y = canvas.height - 30;
 				dx = 2;
@@ -83,8 +84,7 @@ function draw() {
 
 	if (rightPressed) {
 		paddleX += 7;
-	}
-	else if (leftPressed) {
+	} else if (leftPressed) {
 		paddleX -= 7;
 	}
 
@@ -114,7 +114,7 @@ function drawBall() {
 
 	ctx.beginPath();
 	ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-	ctx.fillStyle = "rgba(0,0,0,0)", ctx.drawImage(img_ball, x-20, y-20, 40, 40);
+	ctx.fillStyle = "rgba(0,0,0,0)", ctx.drawImage(img_ball, x - 20, y - 20, 40, 40);
 	ctx.fill();
 	ctx.closePath();
 
@@ -135,8 +135,7 @@ document.addEventListener("mousemove", mouseMoveHandler, false);
 function keyDownHandler(e) {
 	if (e.keyCode == 39) {
 		rightPressed = true;
-	}
-	else if (e.keyCode == 37) {
+	} else if (e.keyCode == 37) {
 		leftPressed = true;
 	}
 }
@@ -144,8 +143,7 @@ function keyDownHandler(e) {
 function keyUpHandler(e) {
 	if (e.keyCode == 39) {
 		rightPressed = false;
-	}
-	else if (e.keyCode == 37) {
+	} else if (e.keyCode == 37) {
 		leftPressed = false;
 	}
 }
@@ -207,7 +205,7 @@ function mensajeModal() {
 
 	clearInterval(intervalo);
 
-	if (!lives){
+	if (!lives) {
 		document.getElementById("modal_msg").innerHTML = `Has perdido con ${score} puntos, una pena`;
 	} else {
 		document.getElementById("modal_msg").innerHTML = `Has ganado con ${lives} vida(s) restantes y un total de puntos de ${score}, felicidades`;
@@ -217,7 +215,7 @@ function mensajeModal() {
 
 function jugarSalir(e) {
 
-	if (e.target.id == "seguir"){
+	if (e.target.id == "seguir") {
 		window.location.reload();
 	} else {
 		document.getElementsByTagName("body")[0].innerHTML = `<h2>Saliendo del juego, tenga un buen día</h2>`;
@@ -230,15 +228,15 @@ function jugarSalir(e) {
 
 function cambiarTexto(e) {
 
-	if (e.target.id == "seguir" && e.type == "mouseover"){
+	if (e.target.id == "seguir" && e.type == "mouseover") {
 
 		seguir.innerHTML = "Como debe ser";
 
-	} else if (e.target.id == "seguir" && e.type == "mouseout"){
+	} else if (e.target.id == "seguir" && e.type == "mouseout") {
 
 		seguir.innerHTML = "Otra partida";
 
-	} else if (e.target.id == "salir" && e.type == "mouseover"){
+	} else if (e.target.id == "salir" && e.type == "mouseover") {
 
 		salir.innerHTML = "No hay huevos?";
 
