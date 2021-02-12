@@ -1,20 +1,20 @@
+/* Todos los elementos */
 * {
 	padding: 0;
 	margin: 0;
 }
 
+/* El cuerpo del documento */
 body {
 	background-color: black;
 }
 
-h2 {
-	color: white;
-}
-
+/* Ocultamos las imágenes que usaremos más tarde en el juego */
 #img_fondo, #img_brick, #img_ball, #img_space {
 	display: none;
 }
 
+/* Las 3 primeras líneas son para aplicar gif como fondo de pantalla del juego, el resto para la forma de mostrar el canvas */
 canvas {
 	background-image: url("./img/space.gif");
 	background-repeat: no-repeat;
@@ -25,9 +25,9 @@ canvas {
 	border: 1px solid black;
 }
 
-/* MODAL */
+/* ----- MODAL ----- */
 
-/* The Modal (background) */
+/* Fondo del Modal */
 .modal {
 	display: none;
 	position: fixed;
@@ -40,7 +40,7 @@ canvas {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content/Box */
+/* Contenido del Modal */
 .modal-content {
 	background-color: #fefefe;
 	margin: 15% auto;
@@ -51,6 +51,7 @@ canvas {
 	top: -7.5em;
 }
 
+/* El mensaje del modal (Victoria o derrota) */
 .modal-content p {
 
 	text-align: center;
@@ -59,14 +60,17 @@ canvas {
 
 }
 
+/* Botón de Continuar */
 #seguir {
 	margin-left: 25%;
 }
 
+/* Botón de Abandonar */
 #salir {
 	margin-left: 5%;
 }
 
+/* Los botones de Seguir o Abandonar */
 .modal-content button {
 
 	color: white;
@@ -77,7 +81,7 @@ canvas {
 
 }
 
-/* The Close Button */
+/* El botón de cerrar */
 .close {
 
 	float: right;
@@ -85,8 +89,14 @@ canvas {
 	font-weight: bold;
 }
 
+/* El botón de cerrar al poner el ratón por encima */
 .close:hover, .close:focus {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+/* El mensaje al salir del juego */
+h2 {
+	color: white;
 }
