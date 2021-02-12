@@ -1,0 +1,43 @@
+#div1{
+	background-color: red;
+}
+
+#div2{
+	background-color: blue;
+}
+
+#div3{
+	background-color: green;
+}
+
+#div_imagenes{
+	opacity: 0.5;
+}
+
+.acordeon img, .acordeon p{
+	display: none;
+}
+
+#h2_1 {
+	background-color: red;
+}
+
+#h2_2 {
+	background-color: blue;
+}
+
+#h2_3 {
+	background-color: green;
+}
+
+#p1 {
+	background-color: yellow;
+}
+
+#p2 {
+	background-color: blueviolet;
+}
+
+#p3 {
+	background-color: greenyellow;
+}
