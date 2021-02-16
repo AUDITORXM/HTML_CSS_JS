@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style>
+		h1 {
+			background-color: yellow;
+		}
+	</style>
+	<title>Ejercicio 4</title>
+</head>
+
+<body>
+
+	<h1>Examen - Ejer 4</h1>
+
+	<form action="mailto:cebanc@cebanc.com" id="formulario"> <!-- Con el mailto hacemos que los datos del form se manden al correo deseado -->
+		<label for="nombre">Nombre:</label>
+		<input type="text" name="nombre" id="nombre">
+		<br><br>
+		<label for="dni">DNI:</label>
+		<input type="text" name="dni" id="dni">
+		<br><br>
+
+		<button type="submit" id="submit">Enviar</button>
+	</form>
+
+	<hr>
+
+	<p>Validar:</p>
+	<ul>
+		<li>Que el nombre no tenga vacío</li>
+		<li>Que el DNI tenga 9 caracteres</li>
+	</ul>
+	<p>Si todo es correcto, enviar a la cuenta cebanc@cebanc.com, si no, sacar los correspondientes mensajes de error
+	</p>
+
+	<script src="js/scripts.js"></script>
+</body>
+
+</html>
