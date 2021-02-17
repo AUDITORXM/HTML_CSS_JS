@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+
+	<title>Hello, world!</title>
+</head>
+
+<body>
+
+	<!-- Contenedor principal para todo el body -->
+	<div class="container">
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Home</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-link active" aria-current="page" href="#">Home</a>
+						<a class="nav-link" href="#">Artículos</a>
+						<a class="nav-link" href="#">Precios</a>
+						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- Fin Navbar -->
+		<!-- Carrusel -->
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+					aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+					aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+					aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/bocadillo1.png" class="d-block w-100" alt="Bocadillo 1">
+				</div>
+				<div class="carousel-item">
+					<img src="img/bocadillo2.png" class="d-block w-100" alt="Bocadillo 2">
+				</div>
+				<div class="carousel-item">
+					<img src="img/bocadillo3.png" class="d-block w-100" alt="Bocadillo 3">
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+				data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+		<!-- Fin Carrusel -->
+		<!-- Sección con Artículos -->
+		<section id="accesibilidad">
+			<div class="p-3 d-flex justify-content-center">
+				<h1 class="m-3">Accesibilidad</h1>
+			</div>
+			<!-- Galería de Artículos -->
+			<div class="row">
+				<div class="col">
+					<div class="card" style="width: 18rem;">
+						<img src="img/cocacola.png" class="card-img-top" alt="Cocacola">
+						<div class="card-body">
+							<h5 class="card-title">Cocacola</h5>
+							<p class="card-text">Descripción</p>
+							<a href="#" class="btn btn-outline-success">Pedir uno</a>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="width: 18rem;">
+						<img src="img/pepsi.png" class="card-img-top" alt="Pepsi">
+						<div class="card-body">
+							<h5 class="card-title">Pepsi</h5>
+							<p class="card-text">Descripción</p>
+							<a href="#" class="btn btn-outline-success">Pedir uno</a>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="card" style="width: 18rem;">
+						<img src="img/aquarius.png" class="card-img-top" alt="Aquarius">
+						<div class="card-body">
+							<h5 class="card-title">Aquarius</h5>
+							<p class="card-text">Descripción</p>
+							<a href="#" class="btn btn-outline-success">Pedir uno</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Fin Galería de Artículos -->
+		</section>
+		<!-- Fin Sección con Artículos -->
+		<!-- Dos Columnas -->
+		<section>
+			<div class="row align-items-center">
+				<div class="col col-4">
+					<img src="img/bocadillo1.png" alt="Bocadillo" class="img-fluid">
+				</div>
+				<div class="col col-8">
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum omnis laboriosam sit dicta quia dolorum consequatur eveniet, a perferendis iste, adipisci earum, non natus dignissimos veniam! Repudiandae molestias molestiae blanditiis?</p>
+				</div>
+			</div>
+		</section>
+		<!-- Fin Dos Columnas -->
+		<!-- Dos Columnas -->
+		<section>
+			<div class="row align-items-center justify-contents-end">
+				<div class="col col-8">
+					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum omnis laboriosam sit dicta quia dolorum
+						consequatur eveniet, a perferendis iste, adipisci earum, non natus dignissimos veniam! Repudiandae
+						molestias molestiae blanditiis?</p>
+				</div>
+				<div class="col col-4">
+					<img src="img/bocadillo1.png" alt="Bocadillo" class="img-fluid">
+				</div>
+			</div>
+		</section>
+		<!-- Fin Dos Columnas -->
+		<!-- Formulario -->
+		<div class="p-3 d-flex justify-content-center">
+			<h1 class="m-3">Contacto</h1>
+		</div>
+		<form>
+			<div class="mb-3">
+				<label for="exampleInputEmail1" class="form-label">Email:</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+				<div id="emailHelp" class="form-text">Nunca compartas tu correo y/o contraseña con nadie.</div>
+			</div>
+			<div class="mb-3">
+				<label for="exampleInputPassword1" class="form-label">Contraseña:</label>
+				<input type="password" class="form-control" id="exampleInputPassword1">
+			</div>
+			<div class="mb-3 form-check">
+				<input type="checkbox" class="form-check-input" id="exampleCheck1">
+				<label class="form-check-label" for="exampleCheck1">Aceptar Términos de Privacidad</label>
+			</div>
+			<button type="submit" class="btn btn-primary">Aceptar</button>
+		</form>
+		<!-- Fin Formulario -->
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/styles.css">
+
+	<title>Portfolio Personal</title>
+</head>
+
+<body>
+
+	<div class="container bg-dark text-white">
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Portfolio Personal</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+						<a class="nav-link active" aria-current="page" href="#">Home</a>
+						<a class="nav-link" href="#contenido">Sobre mi</a>
+						<a class="nav-link" href="#carouselExampleIndicators">Portfolio</a>
+						<a class="nav-link" href="#form">Contacto</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- Fin Navbar -->
+		<!-- Intro -->
+		<div class="header my-5" id="header">
+			<h1>Bienvenido</h1>
+			<p>Esta es mi humilde página web, en el que explico cosas sobre mi y muestro mi portfolio con los proyectos que he realizado. Si desea proseguir, por favor, haga click en el botón que se muestra ante usted.</p>
+			<button class="btn btn-outline-secondary btn-lg" id="verMas" data-bs-toggle="collapse"
+				data-bs-target="#contenido" aria-expanded="false" aria-controls="contenido">Ver más</button>
+		</div>
+		<!-- Fin Intro -->
+		<div id="contenido" class="collapse">
+			<!-- Sobre Mi -->
+			<div class="row">
+				<div class="col-4">
+					<img src="img/android.png" class="img-fluid ms-3">
+					<p class="text-justify ms-5">Desarrollador de Apps</p>
+				</div>
+				<div class="col-lg-8 my-5 desc border-start border-warning">
+					<h3>Kevin Blanco</h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse nostrum earum numquam deleniti sint sapiente
+						aspernatur iure vero assumenda mollitia. Veniam animi dicta temporibus ullam accusantium aliquam eveniet?
+						Culpa, omnis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus aut et sed ipsam quos
+						reiciendis, eaque quo ea natus itaque sequi id consequatur. Vel ullam officia amet ipsam earum	dolorum?</p>
+				</div>
+			</div>
+			<!-- Fin Sobre Mi -->
+			<!-- Portfolio -->
+			<h2 class="m-5">Proyectos importante</h2>
+			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+						class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+						aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+						aria-label="Slide 3"></button>
+					<!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+					aria-label="Slide 4"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+					aria-label="Slide 5"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"
+					aria-label="Slide 6"></button> -->
+				</div>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="img/bocadillo1.png" class="d-block mx-auto" alt="Bocadillo 1">
+					</div>
+					<div class="carousel-item">
+						<img src="img/bocadillo2.png" class="d-block mx-auto" alt="Bocadillo 2">
+					</div>
+					<div class="carousel-item">
+						<img src="img/bocadillo3.png" class="d-block mx-auto" alt="Bocadillo 3">
+					</div>
+					<!-- <div class="carousel-item">
+					<img src="img/cocacola.png" class="d-block mx-auto" alt="Cocacola">
+				</div>
+				<div class="carousel-item">
+					<img src="img/pepsi.png" class="d-block mx-auto" alt="Pepsi">
+				</div>
+				<div class="carousel-item">
+					<img src="img/aquarius.png" class="d-block mx-auto" alt="Aquarius">
+				</div> -->
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Anterior</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Siguiente</span>
+				</button>
+			</div>
+			<h2 class="m-5">Otros Proyectos</h2>
+			<div class="card-group text-dark">
+				<div class="card">
+					<img src="img/python.png" class="card-img-top" alt="Otro Proyecto">
+					<div class="card-body">
+						<h5 class="card-title">Otro Proyecto</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					</div>
+				</div>
+				<div class="card">
+					<img src="img/python.png" class="card-img-top" alt="Otro Proyecto">
+					<div class="card-body">
+						<h5 class="card-title">Otro Proyecto</h5>
+						<p class="card-text">This card has supporting text below as a natural lead-in to additional	content.</p>
+					</div>
+				</div>
+				<div class="card">
+					<img src="img/python.png" class="card-img-top" alt="Otro Proyecto">
+					<div class="card-body">
+						<h5 class="card-title">Otro Proyecto</h5>
+						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional	content. This card has even longer content than the first to show that equal height action.
+						</p>
+					</div>
+				</div>
+			</div>
+			<!-- Fin Portfolio -->
+			<!-- Contacto -->
+			<div class="p-3 d-flex justify-content-center">
+				<h1 class="m-3">Contacto</h1>
+			</div>
+			<form class="border border-success m-3 p-3" id="form">
+				<div class="mb-3">
+					<label for="exampleInputName1" class="form-label">Nombre:</label>
+					<input type="text" class="form-control" id="exampleInputName1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleInputEmail1" class="form-label">Email:</label>
+					<input type="email" class="form-control" id="exampleInputEmail1">
+				</div>
+				<div class="mb-3">
+					<label for="exampleFormControlTextarea1" class="form-label">Mensaje:</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+						placeholder="Escribe tu mensaje..."></textarea>
+				</div>
+				<button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+			</form>
+			<!-- Fin Contacto -->
+		</div>
+
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+	</script>
+</body>
+
+</html>

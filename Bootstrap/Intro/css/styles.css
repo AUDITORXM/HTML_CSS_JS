@@ -1,0 +1,11 @@
+.container{
+	background-color: red;
+}
+
+.carousel-inner{
+	max-height: 300px;
+}
+
+.card{
+	margin: 1em;
+}

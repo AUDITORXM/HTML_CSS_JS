@@ -1,0 +1,27 @@
+body {
+	background-color: #212529;
+}
+
+/* Nav */
+.nav-link, .navbar-brand {
+	color: #f4f4f4;
+	cursor: pointer;
+}
+
+.nav-link {
+	margin-right: 1em;
+}
+
+.nav-link:hover {
+	background: #f4f4f4;
+	color: #f97300;
+}
+
+.navbar-collapse {
+	justify-content: flex-end;
+}
+
+/* Portfolio (Carousel) */
+.row img{
+	width: 50%;
+}
