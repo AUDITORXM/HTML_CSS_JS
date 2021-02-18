@@ -10,13 +10,14 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.css">
+	<link rel="icon" href="img/icon.png">
 
 	<title>Portfolio Personal</title>
 </head>
 
 <body>
 
-	<div class="container bg-dark text-white">
+	<div class="container bg-light">
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
 			<div class="container-fluid">
@@ -41,7 +42,7 @@
 		<div class="header my-5" id="header">
 			<h1>Bienvenido</h1>
 			<p>Esta es mi humilde página web, en el que explico cosas sobre mi y muestro mi portfolio con los proyectos que he realizado. Si desea proseguir, por favor, haga click en el botón que se muestra ante usted.</p>
-			<button class="btn btn-outline-secondary btn-lg" id="verMas" data-bs-toggle="collapse"
+			<button class="btn btn-outline-info mb-3" id="verMas" data-bs-toggle="collapse"
 				data-bs-target="#contenido" aria-expanded="false" aria-controls="contenido">Ver más</button>
 		</div>
 		<!-- Fin Intro -->
@@ -49,7 +50,7 @@
 			<!-- Sobre Mi -->
 			<div class="row">
 				<div class="col-4">
-					<img src="img/android.png" class="img-fluid ms-3">
+					<img src="img/persona.png" class="img-fluid ms-3">
 					<p class="text-justify ms-5">Desarrollador de Apps</p>
 				</div>
 				<div class="col-lg-8 my-5 desc border-start border-warning">
@@ -110,27 +111,26 @@
 				</button>
 			</div>
 			<h2 class="m-5">Otros Proyectos</h2>
-			<div class="card-group text-dark">
-				<div class="card">
-					<img src="img/python.png" class="card-img-top" alt="Otro Proyecto">
+			<div class="card-group">
+				<div class="card bg-light">
+					<img src="img/cocacola.png" class="card-img-top" alt="Imagen Cocacola">
 					<div class="card-body">
-						<h5 class="card-title">Otro Proyecto</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+						<h5 class="card-title">Cocacola</h5>
+						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime ducimus autem hic debitis non, tempore, laborum exercitationem sed amet facilis accusamus ab quo enim vero temporibus voluptatibus aliquam? Neque, perspiciatis.</p>
 					</div>
 				</div>
-				<div class="card">
-					<img src="img/python.png" class="card-img-top" alt="Otro Proyecto">
+				<div class="card bg-light">
+					<img src="img/pepsi.png" class="card-img-top" alt="Imagen Pepsi">
 					<div class="card-body">
-						<h5 class="card-title">Otro Proyecto</h5>
-						<p class="card-text">This card has supporting text below as a natural lead-in to additional	content.</p>
+						<h5 class="card-title">Pepsi</h5>
+						<p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, autem doloremque explicabo possimus magni reprehenderit excepturi iste cum in natus adipisci fugiat. At iste itaque, placeat ad id eligendi ipsa.</p>
 					</div>
 				</div>
-				<div class="card">
-					<img src="img/python.png" class="card-img-top" alt="Otro Proyecto">
+				<div class="card bg-light">
+					<img src="img/aquarius.png" class="card-img-top" alt="Imagen Aquarius">
 					<div class="card-body">
-						<h5 class="card-title">Otro Proyecto</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional	content. This card has even longer content than the first to show that equal height action.
-						</p>
+						<h5 class="card-title">Aquarius</h5>
+						<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem maxime mollitia cum totam laudantium adipisci tenetur excepturi facilis quasi ipsam a, iste itaque sapiente voluptatem at. Nostrum accusamus ab tempora!</p>
 					</div>
 				</div>
 			</div>
@@ -142,18 +142,33 @@
 			<form class="border border-success m-3 p-3" id="form">
 				<div class="mb-3">
 					<label for="exampleInputName1" class="form-label">Nombre:</label>
-					<input type="text" class="form-control" id="exampleInputName1">
+					<input type="text" class="form-control" id="exampleInputName1" tabindex="1">
 				</div>
 				<div class="mb-3">
 					<label for="exampleInputEmail1" class="form-label">Email:</label>
-					<input type="email" class="form-control" id="exampleInputEmail1">
+					<input type="email" class="form-control" id="exampleInputEmail1" tabindex="2">
 				</div>
 				<div class="mb-3">
 					<label for="exampleFormControlTextarea1" class="form-label">Mensaje:</label>
 					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-						placeholder="Escribe tu mensaje..."></textarea>
+						placeholder="Escribe tu mensaje..." tabindex="3"></textarea>
 				</div>
-				<button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Enviar</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-body">Datos enviados con éxito</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Fin Modal -->
 			</form>
 			<!-- Fin Contacto -->
 		</div>
